@@ -154,7 +154,7 @@
 
     //     - користувачів зі статусом true
     console.log('Kористувачі зі статусом true:')
-    for (user of users) {
+    for (let user of users) {
         if (user.status) {
             console.log(`${user.name} ${user.age} ${user.status}`)
         }
@@ -162,7 +162,7 @@
 
     // - користувачів зі статусом false
     console.log('Kористувачі зі статусом false:')
-    for (user of users) {
+    for (let user of users) {
         if (!user.status) {
             console.log(`${user.name} ${user.age} ${user.status}`)
         }
@@ -170,7 +170,7 @@
 
     // - користувачів які старші за 30 років
     console.log('Kористувачі, які старші за 30 років:')
-    for (user of users) {
+    for (let user of users) {
         if (user.age > 30) {
             console.log(`${user.name} ${user.age} ${user.status}`)
         }
