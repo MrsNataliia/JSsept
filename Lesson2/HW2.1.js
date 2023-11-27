@@ -109,7 +109,7 @@ if (time > 0 && time < 16) {
 
 // - У змінній day дано якесь число від 1 до 31. Потрібно визначити, у яку половину(декаду) місяця потрапляє це число (у першу, другу чи третю).
 let date = 5;
-if (date >=1 && date < 11) {
+if (date >= 1 && date < 11) {
     console.log('першa декада місяця')
 } else if (date > 10 && date < 21) {
     console.log('другa частина години')
@@ -122,7 +122,8 @@ if (date >=1 && date < 11) {
 // - Скласти розклад на тиждень за домопоги switch. Користувач вводить порядковий номер дня тижня і на екрані відображається інфа що
 // заплановано на цей день (можна замість плану на день, назву дня англійською).
 
-let day = +prompt('введіть порядковий номер дня тижня');
+// let day = +prompt('введіть порядковий номер дня тижня');
+let day = 7
 switch (day){
     case 1:
         console.log('monday');
@@ -134,8 +135,8 @@ switch (day){
         console.log('wednesday');
         break;
     case 4:
-      console.log('thursday');
-      break;
+        console.log('thursday');
+        break;
     case 5:
         console.log('friday');
         break;
@@ -144,20 +145,23 @@ switch (day){
         break;
     case 7:
         console.log('sunday');
+        break;
+    default:
+        console.error('Error');
 }
 
 //     - Користувач вводить або має два числа.
 //         Потрібно знайти та вивести максимальне число з тих двох .
 //         Також потрібно врахувати коли введені рівні числа.
 
-let a =5;
+let a = 5;
 let b = 3;
-if (a>b){
-    console.log('max значення =',a);
-}else if(a===b){
+if (a > b) {
+    console.log('max значення =', a);
+} else if (a === b) {
     console.log('числа рівні')
-}else {
-    console.log('max значення =',b)
+} else {
+    console.log('max значення =', b)
 }
 
 //
@@ -165,19 +169,23 @@ if (a>b){
 //         за допомоги  оператора || буде присвоювати змінній х значення "default"  якщо значення змінної х являється falsy
 //         (хибноподібні, тобто приводиться до false)
 
-let y=25;
-let y1 = !!'';
-let y2 = !!0;
-let y3 = !!undefined;
-let y4 = !!null;
-let y5 = !!false;
-let y6 = !!NaN;
-let res = y1||y2||y3||y4||y5||y6;
-if (!!y===res){
-    console.log('default')
-} else {
-    console.log(y)
-}
+// let y = 25;
+// let y1 = !!'';
+// let y2 = !!0;
+// let y3 = !!undefined;
+// let y4 = !!null;
+// let y5 = !!false;
+// let y6 = !!NaN;
+// let res = y1 || y2 || y3 || y4 || y5 || y6;
+// if (!!y === res) {
+//     console.log('default')
+// } else {
+//     console.log(y)
+// }
+
+let c= NaN
+c = c || 'default'
+console.log(c)
 
 
 //     - з файлу arrays.js (лежить в папці 2023 plan ) взяти масив coursesAndDurationArray. За допомоги іф перевірити кожен його елемент
@@ -192,33 +200,33 @@ let coursesAndDurationArray = [
     {title: 'Frontend', monthDuration: 4}
 ];
 
-if(coursesAndDurationArray[0].monthDuration>5){
+if (coursesAndDurationArray[0].monthDuration > 5) {
     console.log('Супер')
-}else {
+} else {
     console.log('')
 }
-if(coursesAndDurationArray[1].monthDuration>5){
+if (coursesAndDurationArray[1].monthDuration > 5) {
     console.log('Супер')
-}else {
+} else {
     console.log('')
 }
-if(coursesAndDurationArray[2].monthDuration>5){
+if (coursesAndDurationArray[2].monthDuration > 5) {
     console.log('Супер')
-}else {
+} else {
     console.log('')
 }
-if(coursesAndDurationArray[3].monthDuration>5){
+if (coursesAndDurationArray[3].monthDuration > 5) {
     console.log('Супер')
-}else {
+} else {
     console.log('')
 }
-if(coursesAndDurationArray[4].monthDuration>5){
+if (coursesAndDurationArray[4].monthDuration > 5) {
     console.log('Супер')
-}else {
+} else {
     console.log('')
 }
-if(coursesAndDurationArray[5].monthDuration>5){
+if (coursesAndDurationArray[5].monthDuration > 5) {
     console.log('Супер')
-}else {
+} else {
     console.log('')
 }
