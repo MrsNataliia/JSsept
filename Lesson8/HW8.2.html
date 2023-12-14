@@ -44,26 +44,19 @@
            }
            this.addDriver = function (driver){
                this.driver = driver
-               console.log(this.driver)
+               console.log('driver',this.driver)
 
            }
        }
    }
 
-   class Driver{
-       constructor(name, age) {
-           this.name = name;
-           this.age = age;
-       }
-   }
-    let driver1 = new Driver('Vasy',33);
 
     let car1 = new Car('corsa', 'opel', 2007, 160, 1.3)
     car1.drive();
     car1.info();
     car1.increaseMaxSpeed(20);
     car1.changeYear(2010);
-    car1.addDriver(driver1)
+    car1.addDriver({name: 'Vasy', age:33})
 
 </script>
 
