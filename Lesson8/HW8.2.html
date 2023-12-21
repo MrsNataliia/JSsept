@@ -33,7 +33,12 @@
            }
 
            this.info = function (){
-               console.log(`модель: ${model}, виробник: ${maker}, рік випуску: ${year}, максимальна швидкість: ${maxSpeed}, об'єм двигуна: ${engine}`)
+               // console.log(`модель: ${model}, виробник: ${maker}, рік випуску: ${year}, максимальна швидкість: ${maxSpeed}, об'єм двигуна: ${engine}`)
+           for (const key in this){
+               if (typeof this[key] === "function")continue;
+                   console.log(`${key}: ${this[key]}`)
+
+           }
            }
 
            this.increaseMaxSpeed = function (newSpeed){
