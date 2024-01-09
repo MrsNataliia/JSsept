@@ -8,7 +8,7 @@
     <title>Document</title>
 
     <style>
-        .userBlock{
+        .userBlock {
             width: 30vw;
             display: flex;
             flex-direction: column;
@@ -18,7 +18,8 @@
             margin: 10px;
             padding-left: 5px;
         }
-        .count{
+
+        .count {
             width: 30vw;
             text-align: center;
             font-size: 20px;
@@ -26,7 +27,7 @@
             font-weight: bold;
         }
 
-        .textClear{
+        .textClear {
             width: 20vw;
             display: flex;
             flex-direction: column;
@@ -34,7 +35,8 @@
             background-color: #b8e1b8;
             font-weight: bold;
         }
-        #clear{
+
+        #clear {
             margin: 10px;
             width: 10vw;
             border: none;
@@ -42,7 +44,8 @@
             color: whitesmoke;
             font-size: 15px;
         }
-        #controlAge{
+
+        #controlAge {
             width: 20vw;
             margin: 20px;
             display: flex;
@@ -53,10 +56,16 @@
 
 </head>
 <body>
-<form  name="user">
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="surname" placeholder="surname">
-    <input type="number" name="age" placeholder="age">
+<form name="user">
+    <label>
+        <input type="text" name="name" placeholder="name">
+    </label>
+    <label>
+        <input type="text" name="surname" placeholder="surname">
+    </label>
+    <label>
+        <input type="number" name="age" placeholder="age">
+    </label>
     <button>Відправити</button>
 </form>
 
@@ -65,12 +74,14 @@
 </div>
 
 <div class="textClear">
-<h2 id="text">Lorem ipsum dolor.</h2>
-<button id="clear">clear</button>
+    <h2 id="text">Lorem ipsum dolor.</h2>
+    <button id="clear">clear</button>
 </div>
 
 <form id="controlAge">
-    <input type="number" name="age" placeholder="Ваш вік">
+    <label>
+        <input type="number" name="age" placeholder="Ваш вік">
+    </label>
     <button>підтвердити</button>
 </form>
 
@@ -80,18 +91,22 @@
     // вашим об'єктом
 
     let userInfo = document.forms.user;
-    userInfo.addEventListener('submit',function (ev) {
-        ev.preventDefault();
-        let div = document.createElement('div');
-        div.classList.add('userBlock')
-        let userName = document.createElement('p');
-        userName.innerText = 'Ім\'я: '+ this.name.value;
-        let userSurname = document.createElement('p');
-        userSurname.innerText = 'Прізвище:  '+this.surname.value;
-        let userAge = document.createElement('p');
-        userAge.innerText = 'Вік:  '+this.age.value;
-        div.append(userName, userSurname, userAge);
-        document.body.append(div);
+    userInfo.addEventListener('submit', function (ev) {
+            ev.preventDefault();
+            let div = document.createElement('div');
+            div.classList.add('userBlock')
+            let userName = document.createElement('p');
+            userName.innerText = 'Ім\'я: ' + this.name.value;
+            let userSurname = document.createElement('p');
+            userSurname.innerText = 'Прізвище:  ' + this.surname.value;
+            let userAge = document.createElement('p');
+            userAge.innerText = 'Вік:  ' + this.age.value;
+            div.append(userName, userSurname, userAge);
+            document.body.append(div);
+
+            this.name.value = '';
+            this.surname.value = '';
+            this.age.value = '';
         }
     );
 
@@ -99,12 +114,11 @@
     // ==========================
     // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде
     // додавати до неї +1
-   let counter = localStorage.getItem('count');
-   let num = document.getElementById('number');
-   let newNum = (+counter+1).toString()
+    let counter = localStorage.getItem('count') || 0;
+    let num = document.getElementById('number');
+    let newNum = (+counter + 1).toString()
     num.innerText = 'Кількість перезавантажень сторінки:  ' + newNum;
-   localStorage.setItem('count', newNum);
-
+    localStorage.setItem('count', newNum);
 
 
     // =========================
@@ -113,7 +127,7 @@
     // натисканні на кнопку зникав елемент з id="text".
     let text = document.getElementById('text');
     let button = document.getElementById('clear');
-    button.onclick = function (){
+    button.onclick = function () {
         text.remove()
     }
 
@@ -121,7 +135,7 @@
     //     інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
     let age = document.getElementById('controlAge');
     age.onsubmit = function () {
-        if (+this.age.value<18){
+        if (+this.age.value < 18) {
             alert('Ваш вік меньше ніж 18')
         }
     }
@@ -131,10 +145,12 @@
     //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
     // (Додатковачастина для завдання)
     //
-    // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"
+    // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині
+    // якого є значення "100грн"
     // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
     //     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
     //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+
 
 </script>
 

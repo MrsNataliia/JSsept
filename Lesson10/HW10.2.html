@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        .item {
+            margin-top: 10px;
+            background-color: #efdada;
+            width: 30vw;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+<button id="prev">prev</button>
+<button id="next">next</button>
+
+<div id="wrapper"></div>
+
+<script>
+    //     зробити масив на 100 об'єктів та дві кнопки prev next
+    // при завантажені сторінки з'являються перші 10 об'єктів.
+    //     При натисканні next виводяться настпні 10 об'єктів
+    // При натисканні prev виводяться попередні 10 об'єктів
+
+    let glasses = [
+        {brand: 'Rayban', code: 'RB 1940', price: 3119},
+        {brand: 'Rayban', code: 'RB 1941', price: 1048},
+        {brand: 'Rayban', code: 'RB 1942', price: 3119},
+        {brand: 'Rayban', code: 'RB 1943', price: 5613},
+        {brand: 'Rayban', code: 'RB 1944', price: 7488},
+        {brand: 'Rayban', code: 'RB 1945', price: 1123},
+        {brand: 'Rayban', code: 'RB 1946', price: 3182},
+        {brand: 'Rayban', code: 'RB 1947', price: 2994},
+        {brand: 'Rayban', code: 'RB 1948', price: 3432},
+        {brand: 'Rayban', code: 'RB 1949', price: 2619},
+        {brand: 'Rayban', code: 'RB 1950', price: 3094},
+        {brand: 'Rayban', code: 'RB 1951', price: 3307},
+        {brand: 'Rayban', code: 'RB 1952', price: 2307},
+        {brand: 'Rayban', code: 'RB 1953', price: 2057},
+        {brand: 'Rayban', code: 'RB 1954', price: 3019},
+        {brand: 'Rayban', code: 'RB 1955', price: 3182},
+        {brand: 'Rayban', code: 'RB 1956', price: 2494},
+        {brand: 'Rayban', code: 'RB 1957', price: 7488},
+        {brand: 'Rayban', code: 'RB 1958', price: 3057},
+        {brand: 'Rayban', code: 'RB 1959', price: 2494},
+        {brand: 'Rayban', code: 'RB 1960', price: 6863},
+        {brand: 'Rayban', code: 'RB 1961', price: 2344},
+        {brand: 'Rayban', code: 'RB 1962', price: 2494},
+        {brand: 'Rayban', code: 'RB 1963', price: 5988},
+        {brand: 'Rayban', code: 'RB 1964', price: 6738},
+        {brand: 'Rayban', code: 'RB 1965', price: 2682},
+        {brand: 'Rayban', code: 'RB 1966', price: 3432},
+        {brand: 'Rayban', code: 'RB 1967', price: 1871},
+        {brand: 'Rayban', code: 'RB 1968', price: 1497},
+        {brand: 'Rayban', code: 'RB 1969', price: 8863},
+        {brand: 'Rayban', code: 'RB 1970', price: 3432},
+        {brand: 'Rayban', code: 'RB 1971', price: 1871},
+        {brand: 'Rayban', code: 'RB 1972', price: 2620},
+        {brand: 'Rayban', code: 'RB 1973', price: 7488},
+        {brand: 'Rayban', code: 'RB 1974', price: 2807},
+        {brand: 'Rayban', code: 'RB 1975', price: 7488},
+        {brand: 'Rayban', code: 'RB 1976', price: 7063},
+        {brand: 'Rayban', code: 'RB 1977', price: 7063},
+        {brand: 'Rayban', code: 'RB 1978', price: 2619},
+        {brand: 'Rayban', code: 'RB 1979', price: 3744},
+        {brand: 'Rayban', code: 'RB 1980', price: 3744},
+        {brand: 'Rayban', code: 'RB 1981', price: 7488},
+        {brand: 'Rayban', code: 'RB 1982', price: 3744},
+        {brand: 'Rayban', code: 'RB 1983', price: 7488},
+        {brand: 'Rayban', code: 'RB 1984', price: 2494},
+        {brand: 'Rayban', code: 'RB 1985', price: 2994},
+        {brand: 'Rayban', code: 'RB 1986', price: 5613},
+        {brand: 'Rayban', code: 'RB 1987', price: 1994},
+        {brand: 'Rayban', code: 'RB 1988', price: 2469},
+        {brand: 'Rayban', code: 'RB 1989', price: 7063},
+        {brand: 'Rayban', code: 'RB 1990', price: 2807},
+        {brand: 'Rayban', code: 'RB 1991', price: 2284},
+        {brand: 'Rayban', code: 'RB 1992', price: 2322},
+        {brand: 'Rayban', code: 'RB 1993', price: 1947},
+        {brand: 'Rayban', code: 'RB 1994', price: 1947},
+        {brand: 'Rayban', code: 'RB 1995', price: 2807},
+        {brand: 'Rayban', code: 'RB 1996', price: 3307},
+        {brand: 'Rayban', code: 'RB 1997', price: 2494},
+        {brand: 'Rayban', code: 'RB 1998', price: 2644},
+        {brand: 'Rayban', code: 'RB 1999', price: 2494},
+        {brand: 'Rayban', code: 'RB 2000', price: 8388},
+        {brand: 'Rayban', code: 'RB 2001', price: 3532},
+        {brand: 'Rayban', code: 'RB 2002', price: 1994},
+        {brand: 'Rayban', code: 'RB 2003', price: 7488},
+        {brand: 'Rayban', code: 'RB 2004', price: 9919},
+        {brand: 'Rayban', code: 'RB 2005', price: 1871},
+        {brand: 'Rayban', code: 'RB 2006', price: 3644},
+        {brand: 'Rayban', code: 'RB 2007', price: 5613},
+        {brand: 'Rayban', code: 'RB 2008', price: 1000},
+        {brand: 'Rayban', code: 'RB 2009', price: 3094},
+        {brand: 'Rayban', code: 'RB 2010', price: 2244},
+        {brand: 'Rayban', code: 'RB 2011', price: 2369},
+        {brand: 'Rayban', code: 'RB 2012', price: 2182},
+        {brand: 'Rayban', code: 'RB 2013', price: 2182},
+        {brand: 'Rayban', code: 'RB 2014', price: 2807},
+        {brand: 'Rayban', code: 'RB 2015', price: 2219},
+        {brand: 'Rayban', code: 'RB 2016', price: 2594},
+        {brand: 'Rayban', code: 'RB 2017', price: 2032},
+        {brand: 'Rayban', code: 'RB 2018', price: 2494},
+        {brand: 'Rayban', code: 'RB 2019', price: 2969},
+        {brand: 'Rayban', code: 'RB 2020', price: 1869},
+        {brand: 'Rayban', code: 'RB 2021', price: 2807},
+        {brand: 'Rayban', code: 'RB 2022', price: 2182},
+        {brand: 'Rayban', code: 'RB 2023', price: 2394},
+        {brand: 'Rayban', code: 'RB 2024', price: 4363},
+        {brand: 'Rayban', code: 'RB 2025', price: 2644},
+        {brand: 'Rayban', code: 'RB 2026', price: 2244},
+        {brand: 'Rayban', code: 'RB 2027', price: 2494},
+        {brand: 'Rayban', code: 'RB 2028', price: 2494},
+        {brand: 'Rayban', code: 'RB 2029', price: 3057},
+        {brand: 'Rayban', code: 'RB 2030', price: 2432},
+        {brand: 'Rayban', code: 'RB 2031', price: 2644},
+        {brand: 'Rayban', code: 'RB 2032', price: 2369},
+        {brand: 'Rayban', code: 'RB 2033', price: 2844},
+        {brand: 'Rayban', code: 'RB 2034', price: 2844},
+        {brand: 'Rayban', code: 'RB 2035', price: 2844},
+        {brand: 'Rayban', code: 'RB 2036', price: 2844},
+        {brand: 'Rayban', code: 'RB 2037', price: 2844},
+        {brand: 'Rayban', code: 'RB 2038', price: 2844},
+        {brand: 'Rayban', code: 'RB 2039', price: 2844}
+    ];
+
+    let page = 1;
+    let limit = 10;
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+
+    let handler = (page,limit)=>{
+        let wrapper = document.getElementById('wrapper')
+
+        let firstIndex = (page-1)*limit;
+        let lastIndex = page * limit;
+
+        if (firstIndex===0) {
+            prev.setAttribute('disabled', 'disabled')
+        }else{
+            prev.removeAttribute('disabled')
+        }
+        if(lastIndex===glasses.length){
+            next.setAttribute('disabled', 'disabled')
+        }else {
+            next.removeAttribute('disabled')
+        }
+
+
+        const newPage = [];
+        for (let i = firstIndex; i < lastIndex; i++) {
+            const obj = glasses[i];
+
+            const item = document.createElement('div');
+            const title = document.createElement('p');
+            const type = document.createElement('p');
+
+            title.innerText = `Очки ${obj.brand} ${obj.code}`;
+            type.innerText = `${obj.price} грн`;
+
+            item.classList.add('item');
+
+            item.append(title, type);
+            newPage.push(item);
+        }
+        wrapper.replaceChildren(...newPage);
+
+    }
+
+    handler(page, limit);
+    prev.addEventListener('click', () => handler(page -= 1, limit));
+    next.addEventListener('click', () => handler(page += 1, limit));
+
+
+</script>
+</body>
+</html>
